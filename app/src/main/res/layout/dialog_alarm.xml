@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="20dp">
+        <TimePicker
+            android:id="@+id/tp"
+            android:timePickerMode="spinner"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+        <EditText
+            android:id="@+id/label"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Nome (opcional)" android:inputType="textCapSentences"
+            android:maxLines="1" />
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:layout_marginBottom="8dp"
+            android:text="Repetir (sem dias = uma vez)" />
+        <LinearLayout
+            android:id="@+id/days"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:text="Adiar por" />
+        <Spinner
+            android:id="@+id/snooze"
+            android:layout_width="match_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,21 @@
+package com.mogas.timemanager
+
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+
+class AlarmReceiver : BroadcastReceiver() {
+    override fun onReceive(c: Context, i: Intent) {
+        val id = i.getIntExtra("id", -1)
+        val a = Store.get(c, id) ?: return
+        if (id > 0 && !i.getBooleanExtra("snooze", false)) {
+            if (a.days == 0) {
+                a.enabled = false
+                Store.upsert(c, a)
+            } else {
+                Scheduler.schedule(c, a)
+            }
+        }
+        c.startForegroundService(Intent(c, AlarmService::class.java).putExtra("id", id))
+    }
+}
